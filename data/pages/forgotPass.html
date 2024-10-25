@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quên Mật Khẩu</title>
+    <link rel="stylesheet" href="../css/forgotPass.css" />
+    <link rel="shortcut icon" href="../ico/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <form id="formConfirmUser">
+        <div class="forgot-password-box">
+          <h2>Quên Mật Khẩu</h2>
+          <div class="stages">
+            <div class="stage" id="stage-1">1. Nhập tài khoản</div>
+            <div class="stage">2. Đặt lại mật khẩu</div>
+          </div>
+          <div class="input-email">
+            <input type="email" id="email" placeholder=" " required />
+            <label for="email">Email</label>
+            <div id="tooltip-email" class="tooltip-message">
+              Email không hợp lệ!
+            </div>
+          </div>
+          <button type="submit" id="continue">Xong</button>
+        </div>
+        <a href="./login.html" class="goLogin">Trở về Login</a>
+      </form>
+
+      <!--  -->
+      <form id="formSetPass">
+        <div class="forgot-password-box">
+          <h2>Quên Mật Khẩu</h2>
+          <div class="stages">
+            <div class="stage">1. Nhập tài khoản</div>
+            <div class="stage" id="stage-2">2. Đặt lại mật khẩu</div>
+          </div>
+          <div class="input-setpassword">
+            <div id="tooltip-password" class="tooltip-message">
+              Mật khẩu không khớp!
+            </div>
+            <div>
+              <input
+                type="password"
+                id="newPassword"
+                placeholder=" "
+                required
+              />
+              <label for="newPassword">Mật khẩu mới</label>
+              <i
+                class="fa-solid fa-eye"
+                onclick="togglePassword('newPassword', this)"
+              ></i>
+            </div>
+            <div>
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder=" "
+                required
+              />
+              <label for="confirmPassword">Nhập lại mật khẩu mới</label>
+              <i
+                class="fa-solid fa-eye"
+                onclick="togglePassword('confirmPassword', this)"
+              ></i>
+            </div>
+          </div>
+          <button type="submit" id="Complete">Hoàn Tất</button>
+        </div>
+        <a href="./login.html" class="goLogin">Trở về Login</a>
+        <!--  -->
+      </form>
+    </div>
+    <script src="../js/forgotPass.js"></script>
+  </body>
+</html>

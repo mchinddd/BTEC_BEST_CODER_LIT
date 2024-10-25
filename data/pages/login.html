@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="shortcut icon" href="../ico/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <title>Login</title>
+  </head>
+  <body>
+    <!-- <div class="video-container">
+      <video autoplay muted loop id="background-video">
+        <source src="../video/canhDep.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+      </video>
+      
+    </div> -->
+    <div class="container" id="container">
+      <div class="form-container sign-up-container hidden">
+        <!-- đăng kí -->
+        <form id="formRegister">
+          <h1>Create Account</h1>
+          <div id="eError-R" class="alertRegister">
+            Email không được để trống
+          </div>
+          <input id="e-R" type="email" placeholder="Email" />
+          <div id="passError-R" class="alertRegister">
+            Password không được để trống
+          </div>
+          <div class="input-container">
+            <input id="pass-R" type="password" placeholder="Password" />
+            <i
+              class="fa-regular fa-eye"
+              onclick="togglePassword('pass-R', this)"
+            ></i>
+          </div>
+          <div id="rePassError-R" class="alertRegister">
+            Re-password không được để trống
+          </div>
+          <div class="input-container">
+            <input id="rePass-R" type="password" placeholder="Re-password" />
+            <i
+              class="fa-regular fa-eye"
+              onclick="togglePassword('rePass-R', this)"
+            ></i>
+          </div>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+
+      <div class="form-container sign-in-container">
+        <!-- đăng nhập -->
+        <form id="formLogin">
+          <h1>Sign in</h1>
+          <div id="eError-L" class="alertLogin">Email không được để trống</div>
+          <input id="e-L" type="email" placeholder="Email" />
+          <div id="passError-L" class="alertLogin">
+            Password không được để trống
+          </div>
+          <div class="input-container">
+            <input id="pass-L" type="password" placeholder="Password" />
+            <i
+              class="fa-regular fa-eye"
+              onclick="togglePassword('pass-L', this)"
+            ></i>
+          </div>
+          <a href="./forgotPass.html">Forgot your password ?</a>
+          <button type="submit">Sign in</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <!-- lớp phủ -->
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Hello</h1>
+            <p>You already have an account</p>
+            <button class="ghost" id="signIn">Sign in</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Welcome</h1>
+            <p>You don't have an account yet</p>
+            <button class="ghost" id="signUp">Sign up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+public class Example {
+    public static void main(String[] args) {
+        int a = 10;
+        int result = sum(a, y: 5);
+        System.out.println(result);
+    }
+        public static int sum(int x, int y) {
+        return x + y;
+    }
+}
