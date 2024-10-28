@@ -1,72 +1,62 @@
-/* General styling */
 body {
   background-image: url(../img/backgroundNight.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-}
-.container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); */
-  color: white;
   font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+}
+
+.container {
+  /* background-color: #ff9800; */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+  color: #333;
   -webkit-backdrop-filter: blur(5px) contrast(1.2);
   backdrop-filter: blur(5px) contrast(1.2);
 }
 
-/* Weather card styling */
-.weather-card {
-  /* background-color: #c5c9db; */
-  background-color: rgba(237, 237, 243, 0.277);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 320px;
-  height: 350px;
-}
-
-#relay-box {
-  margin-top: 20px;
-}
-
-.search-box {
-  margin-top: 10px;
-}
-
-h2 {
-  margin: 0;
-  margin-top: 20px;
-  font-size: 24px;
-}
-
-#temperature-box {
-  margin-top: 20px;
-}
-
-#quaNhiet {
-  margin-top: 10px;
-  display: none;
-  color: red;
-  font-weight: bold;
-}
-
-.extra-info p {
+.container h2 {
+  font-size: 20px;
   margin: 10px 0;
+  color: blue;
 }
 
-#turbidity-box {
-  margin-top: 20px;
+#temperature-box,
+#turbidity-box,
+#relay-box {
+  /* background-color: #ffe0b2; */
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+  color: #000;
 }
 
-#highTurbidity {
-  margin-top: 10px;
-  display: none;
-  color: orange;
+#date-time {
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 20px;
+  color: white;
+}
+
+#quaNhiet,
+#highTurbidity {
+  font-size: 14px;
+  color: red;
+  margin-top: 5px;
+  display: none;
+}
+
+#relayStatus {
+  font-weight: bold;
+  color: green;
+  cursor: pointer;
 }

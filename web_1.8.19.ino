@@ -23,9 +23,12 @@ const int ONE_WIRE_BUS = 5;
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 
+// Khai báo trạng thái relay
+bool relayStatus = LOW;
+
 // Cấu hình WiFi và WebSocket
-const char* ssid = "Redmi 9";
-const char* password = "111111111";
+const char* ssid = "OPPO A31";
+const char* password = "12345678";
 AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
 
@@ -139,7 +142,26 @@ void notifyClients(const char* message) {
 
 
 void handleWebSocketMessage(void *arg, uint8_t *data, size_t len) {
-  // Để trống vì không xử lý bất kỳ tin nhắn nào từ client
+  AwsFrameInfo *info = (AwsFrameInfo*)arg;
+
+  if (info->final && info->index == 0 && info->len == len && info->opcode == WS_TEXT) {
+    String message = String((char*)data);
+    message.remove(len);  // Đảm bảo chuỗi chỉ chứa tin nhắn
+
+    // Kiểm tra tin nhắn có phải là yêu cầu đổi trạng thái relay
+    if (message == "{\"relayStatus\":\"ON\"}") {
+      relayStatus = HIGH;  // Bật relay
+    } else if (message == "{\"relayStatus\":\"OFF\"}") {
+      relayStatus = LOW;   // Tắt relay
+    }
+
+    // Cập nhật trạng thái relay
+    digitalWrite(relayPin, relayStatus);
+
+    // Gửi lại trạng thái mới của relay đến các client để cập nhật giao diện
+    String json = "{\"relayStatus\": \"" + String(relayStatus == HIGH ? "ON" : "OFF") + "\"}";
+    notifyClients(json.c_str());
+  }
 }
 
 void onEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType type, void *arg, uint8_t *data, size_t len) {

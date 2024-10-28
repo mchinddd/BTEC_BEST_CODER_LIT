@@ -73,3 +73,15 @@ socket.onclose = function () {
 socket.onerror = function (error) {
   console.log("Lỗi WebSocket: " + error.message);
 };
+
+// Thêm sự kiện click để thay đổi trạng thái relay
+document.getElementById("relayStatus").onclick = function () {
+  let currentStatus = document.getElementById("relayStatus").innerText;
+
+  // Chuyển đổi trạng thái relay
+  let newStatus = currentStatus === "OFF" ? "ON" : "OFF";
+  document.getElementById("relayStatus").innerText = newStatus;
+
+  // Gửi trạng thái mới qua WebSocket để cập nhật máy chủ (nếu cần)
+  socket.send(JSON.stringify({ relayStatus: newStatus }));
+};
