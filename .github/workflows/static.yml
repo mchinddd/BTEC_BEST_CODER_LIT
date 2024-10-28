@@ -6,7 +6,7 @@ on:
   push:
     branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -24,6 +24,7 @@ concurrency:
   
 jobs:
   build:
+  
     runs-on: self-hosted
     defaults:
       run:
@@ -31,3 +32,5 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: copy source
+        run: cp -r /home/lit/actions-runner/_work/BTEC_BEST_CODER_LIT/BTEC_BEST_CODER_LIT/data  /www/wwwroot/clean-water.btecit.tech
