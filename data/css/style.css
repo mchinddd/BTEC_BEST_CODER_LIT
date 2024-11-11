@@ -23,9 +23,8 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-} */
-
-/* #background-video {
+}
+#background-video {
   position: absolute;
   top: 50%;
   left: 50%;
